@@ -1,0 +1,19 @@
+version: "3.7"
+
+networks:
+  init:
+volumes:
+  portainer:
+
+services:
+  app:
+    image: portainer/portainer-ce
+    ports:
+      - 8000:8000
+      - 9000:9000
+      - 9433:9433
+    networks:
+      - init
+    volumes:
+      - portainer:/data
+      - /var/run/docker.sock:/var/run/docker.sock

@@ -1,0 +1,16 @@
+version: "3"
+
+networks:
+  init:
+volumes:
+  time-data:
+
+services:
+  app:
+    image: piaverous/timetagger:v21.3.3
+    ports:
+      - 8888:80
+    networks:
+      - init
+    volumes:
+      - time-data:/root
